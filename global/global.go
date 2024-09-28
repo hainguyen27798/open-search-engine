@@ -9,5 +9,5 @@ import (
 var (
 	Config    *settings.Config
 	Typesense *typesense.Client
-	MongoDB   *mongo.Client
+	MongoDB   *mongo.Database
 )

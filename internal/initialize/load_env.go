@@ -28,6 +28,7 @@ func LoadEnv() {
 			URL:         os.Getenv("MONGO_URL"),
 			Username:    os.Getenv("MONGO_USERNAME"),
 			Password:    os.Getenv("MONGO_PASSWORD"),
+			Database:    os.Getenv("MONGO_BD_NAME"),
 			MaxPoolSize: mongoPoolSize,
 		},
 	}

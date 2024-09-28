@@ -28,5 +28,5 @@ func InitMongo() {
 		log.Fatal(err)
 	}
 	log.Println("Connected to MongoDB!")
-	global.MongoDB = client
+	global.MongoDB = client.Database(global.Config.MongoDB.Database)
 }

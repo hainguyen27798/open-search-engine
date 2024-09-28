@@ -20,5 +20,6 @@ type MongoDBSettings struct {
 	URL         string
 	Username    string
 	Password    string
+	Database    string
 	MaxPoolSize uint64
 }
