@@ -8,6 +8,7 @@ import (
 func Run() {
 	LoadEnv()
 	InitTypesense()
+	InitMongo()
 
 	r := InitRouter()
 	err := r.Run(fmt.Sprintf(":%d", global.Config.Server.Port))
