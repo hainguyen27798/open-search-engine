@@ -12,17 +12,20 @@ type IProductRepo interface {
 }
 
 type productRepo struct {
-	db *mongo.Database
+	collection *mongo.Collection
 }
 
 func NewProductRepo(db *mongo.Database) IProductRepo {
 	return &productRepo{
-		db,
+		db.Collection("products"),
 	}
 }
 
 func (repo *productRepo) InsertProduct(product models.Product) error {
-	_, err := repo.db.Collection("products").InsertOne(context.Background(), product)
+	if err := product.Creating(); err != nil {
+		return err
+	}
+	_, err := repo.collection.InsertOne(context.Background(), product)
 	if err != nil {
 		log.Println(err)
 		return err

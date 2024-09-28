@@ -8,6 +8,7 @@ require (
 	github.com/google/wire v0.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/typesense/typesense-go/v2 v2.0.0
+	go.mongodb.org/mongo-driver v1.17.0
 	go.mongodb.org/mongo-driver/v2 v2.0.0-beta2
 )
 
