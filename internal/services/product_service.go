@@ -11,6 +11,7 @@ import (
 type (
 	IProductAdminService interface {
 		Create(c *gin.Context) (*dto.ProductDto, *response.ServerCode)
+		Get(c *gin.Context) (*dto.ProductDto, *response.ServerCode)
 		Delete(c *gin.Context) bool
 		Update(c *gin.Context) dto.ProductDto
 	}

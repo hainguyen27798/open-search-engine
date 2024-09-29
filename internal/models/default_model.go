@@ -1,17 +1,17 @@
 package models
 
 import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/v2/bson"
 	"time"
 )
 
 type IDField struct {
-	ID primitive.ObjectID `json:"id" bson:"_id,omitempty"`
+	ID bson.ObjectID `json:"id" bson:"_id,omitempty"`
 }
 
 type DateFields struct {
-	CreatedAt time.Time `json:"created_at" bson:"created_at"`
-	UpdatedAt time.Time `json:"updated_at" bson:"updated_at"`
+	CreatedAt time.Time `json:"createdAt" bson:"created_at"`
+	UpdatedAt time.Time `json:"updatedAt" bson:"updated_at"`
 }
 
 type DefaultModel struct {

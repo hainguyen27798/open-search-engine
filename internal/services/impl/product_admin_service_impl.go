@@ -34,6 +34,15 @@ func (pas *ProductAdminServiceImpl) Create(c *gin.Context) (*dto.ProductDto, *re
 	return nil, response.ReturnCode(response.CreatedSuccess)
 }
 
+func (pas *ProductAdminServiceImpl) Get(c *gin.Context) (*dto.ProductDto, *response.ServerCode) {
+	id := c.Param("id")
+	product, err := pas.repo.GetProduct(id)
+	if err != nil {
+		return nil, response.ReturnCode(response.ErrNotFound)
+	}
+	return utils.ModelToDto[dto.ProductDto](*product), nil
+}
+
 func (pas *ProductAdminServiceImpl) Delete(c *gin.Context) bool {
 	//TODO implement me
 	panic("implement me")

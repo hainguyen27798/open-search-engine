@@ -8,7 +8,6 @@ require (
 	github.com/google/wire v0.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/typesense/typesense-go/v2 v2.0.0
-	go.mongodb.org/mongo-driver v1.17.0
 	go.mongodb.org/mongo-driver/v2 v2.0.0-beta2
 )
 
@@ -26,7 +25,7 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.5.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/klauspost/compress v1.17.10 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.8 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

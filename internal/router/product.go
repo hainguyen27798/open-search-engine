@@ -14,5 +14,6 @@ func (p *ProductRouter) InitProductRouter(Router *gin.RouterGroup) {
 	productAdminRouter := Router.Group("products")
 	{
 		productAdminRouter.POST("", productAdminHandler.CreateProduct)
+		productAdminRouter.GET(":id", productAdminHandler.GetProduct)
 	}
 }

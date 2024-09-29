@@ -18,3 +18,12 @@ func (pac *ProductAdminController) CreateProduct(c *gin.Context) {
 	_, code := pac.service.Create(c)
 	response.MessageResponse(c, code.Code())
 }
+
+func (pac *ProductAdminController) GetProduct(c *gin.Context) {
+	product, errCode := pac.service.Get(c)
+	if errCode != nil {
+		response.NotFoundException(c, errCode.Code())
+		return
+	}
+	response.OkResponse(c, response.CodeSuccess, *product)
+}

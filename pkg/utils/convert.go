@@ -29,3 +29,15 @@ func DtoToModel[MT any, T any](dto T) (*MT, *response.ServerCode) {
 
 	return &model, nil
 }
+
+func ModelToDto[T any, MT any](model MT) *T {
+	var payload T
+
+	bytes, _ := json.Marshal(model)
+	err := json.Unmarshal(bytes, &payload)
+	if err != nil {
+		log.Printf("convert to dto failed %v", err.Error())
+		return nil
+	}
+	return &payload
+}
