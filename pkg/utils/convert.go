@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"github.com/hainguyen27798/open-typesense-search/global"
 	"github.com/hainguyen27798/open-typesense-search/internal/pkg/response"
 	"log"
 )
@@ -10,6 +11,12 @@ import (
 func BodyToDto[T any](c *gin.Context) *T {
 	var payload *T
 	if err := c.ShouldBindBodyWithJSON(&payload); err != nil {
+		response.ValidateErrorResponse(c, err)
+		c.Abort()
+		return nil
+	}
+	if err := global.Validate.Struct(payload); err != nil {
+		log.Println(err)
 		response.ValidateErrorResponse(c, err)
 		c.Abort()
 		return nil

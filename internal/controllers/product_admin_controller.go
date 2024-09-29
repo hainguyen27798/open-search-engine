@@ -16,6 +16,9 @@ func NewProductAdminController(service services.IProductAdminService) *ProductAd
 
 func (pac *ProductAdminController) CreateProduct(c *gin.Context) {
 	code := pac.service.Create(c)
+	if code == nil {
+		return
+	}
 	response.MessageResponse(c, code.Code())
 }
 

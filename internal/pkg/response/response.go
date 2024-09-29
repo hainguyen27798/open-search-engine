@@ -1,6 +1,7 @@
 package response
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -95,6 +96,11 @@ func validationErrorsToJSON(err error) []string {
 				res = append(res, fmt.Sprintf("Fiels %s is invalid due to %s", fieldErr.Field(), fieldErr.Tag()))
 			}
 		}
+	}
+
+	var errDetails *json.UnmarshalTypeError
+	if ok := errors.As(err, &errDetails); ok {
+		res = append(res, fmt.Sprintf("Fiels %s type is invalid", errDetails.Field))
 	}
 
 	return res
