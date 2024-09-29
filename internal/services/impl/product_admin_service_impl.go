@@ -17,21 +17,21 @@ func NewProductAdminServiceImpl(repo repos.IProductRepo) *ProductAdminServiceImp
 	return &ProductAdminServiceImpl{repo}
 }
 
-func (pas *ProductAdminServiceImpl) Create(c *gin.Context) (*dto.ProductDto, *response.ServerCode) {
+func (pas *ProductAdminServiceImpl) Create(c *gin.Context) *response.ServerCode {
 	payload := utils.BodyToDto[dto.CreateProductDto](c)
 	if payload == nil {
-		return nil, nil
+		return nil
 	}
 
 	product, errCode := utils.DtoToModel[models.Product](payload)
 	if errCode != nil {
-		return nil, errCode
+		return errCode
 	}
 
 	if err := pas.repo.InsertProduct(*product); err != nil {
-		return nil, response.ReturnCode(response.ErrBadRequest)
+		return response.ReturnCode(response.ErrBadRequest)
 	}
-	return nil, response.ReturnCode(response.CreatedSuccess)
+	return response.ReturnCode(response.CreatedSuccess)
 }
 
 func (pas *ProductAdminServiceImpl) Get(c *gin.Context) (*dto.ProductDto, *response.ServerCode) {
