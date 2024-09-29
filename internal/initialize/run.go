@@ -7,6 +7,7 @@ import (
 
 func Run() {
 	LoadEnv()
+	InitValidator()
 	InitTypesense()
 	InitMongo()
 

@@ -10,11 +10,15 @@ import (
 )
 
 func InitMongo() {
+	loggerOptions := options.
+		Logger().
+		SetComponentLevel(options.LogComponentCommand, options.LogLevelDebug)
 	client, err := mongo.Connect(
 		options.
 			Client().
 			ApplyURI(global.Config.MongoDB.URL).
 			SetMaxPoolSize(global.Config.MongoDB.MaxPoolSize).
+			SetLoggerOptions(loggerOptions).
 			SetAuth(options.Credential{
 				AuthSource: "admin",
 				Username:   global.Config.MongoDB.Username,
@@ -28,5 +32,5 @@ func InitMongo() {
 		log.Fatal(err)
 	}
 	log.Println("Connected to MongoDB!")
-	global.MongoDB = client
+	global.MongoDB = client.Database(global.Config.MongoDB.Database)
 }
