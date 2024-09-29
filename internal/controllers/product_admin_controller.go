@@ -20,10 +20,15 @@ func (pac *ProductAdminController) CreateProduct(c *gin.Context) {
 }
 
 func (pac *ProductAdminController) GetProduct(c *gin.Context) {
-	product, errCode := pac.service.Get(c)
-	if errCode != nil {
-		response.NotFoundException(c, errCode.Code())
+	product, code := pac.service.Get(c)
+	if product == nil {
+		response.NotFoundException(c, code.Code())
 		return
 	}
 	response.OkResponse(c, response.CodeSuccess, *product)
+}
+
+func (pac *ProductAdminController) DeleteProduct(c *gin.Context) {
+	code := pac.service.Delete(c)
+	response.MessageResponse(c, code.Code())
 }

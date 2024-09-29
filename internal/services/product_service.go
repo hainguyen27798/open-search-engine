@@ -12,8 +12,8 @@ type (
 	IProductAdminService interface {
 		Create(c *gin.Context) *response.ServerCode
 		Get(c *gin.Context) (*dto.ProductDto, *response.ServerCode)
-		Delete(c *gin.Context) bool
-		Update(c *gin.Context) dto.ProductDto
+		Delete(c *gin.Context) *response.ServerCode
+		Update(c *gin.Context) *response.ServerCode
 	}
 	IProductSearchService interface{}
 )

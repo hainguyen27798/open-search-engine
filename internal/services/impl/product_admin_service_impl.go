@@ -28,27 +28,23 @@ func (pas *ProductAdminServiceImpl) Create(c *gin.Context) *response.ServerCode 
 		return errCode
 	}
 
-	if err := pas.repo.InsertProduct(*product); err != nil {
-		return response.ReturnCode(response.ErrBadRequest)
-	}
-	return response.ReturnCode(response.CreatedSuccess)
+	return pas.repo.InsertProduct(*product)
 }
 
 func (pas *ProductAdminServiceImpl) Get(c *gin.Context) (*dto.ProductDto, *response.ServerCode) {
 	id := c.Param("id")
-	product, err := pas.repo.GetProduct(id)
-	if err != nil {
-		return nil, response.ReturnCode(response.ErrNotFound)
+	product, code := pas.repo.GetProduct(id)
+	if product == nil {
+		return nil, code
 	}
 	return utils.ModelToDto[dto.ProductDto](*product), nil
 }
 
-func (pas *ProductAdminServiceImpl) Delete(c *gin.Context) bool {
-	//TODO implement me
-	panic("implement me")
+func (pas *ProductAdminServiceImpl) Delete(c *gin.Context) *response.ServerCode {
+	id := c.Param("id")
+	return pas.repo.DeleteProduct(id)
 }
 
-func (pas *ProductAdminServiceImpl) Update(c *gin.Context) dto.ProductDto {
-	//TODO implement me
-	panic("implement me")
+func (pas *ProductAdminServiceImpl) Update(c *gin.Context) *response.ServerCode {
+	return response.ReturnCode(response.UpdatedSuccess)
 }

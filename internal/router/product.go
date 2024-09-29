@@ -15,5 +15,6 @@ func (p *ProductRouter) InitProductRouter(Router *gin.RouterGroup) {
 	{
 		productAdminRouter.POST("", productAdminHandler.CreateProduct)
 		productAdminRouter.GET(":id", productAdminHandler.GetProduct)
+		productAdminRouter.DELETE(":id", productAdminHandler.DeleteProduct)
 	}
 }

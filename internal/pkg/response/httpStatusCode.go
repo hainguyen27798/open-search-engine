@@ -21,6 +21,8 @@ func (sc *ServerCode) Code() int {
 
 const (
 	CodeSuccess         = 20000 // Success
+	UpdatedSuccess      = 20002 // Updated Success
+	DeletedSuccess      = 20001 // Deleted Success
 	CreatedSuccess      = 20101 // Created success
 	ErrBadRequest       = 40000 // Bad Request
 	ErrCodeParamInvalid = 40001 // Param invalid
@@ -32,6 +34,8 @@ const (
 
 var CodeMsg = map[int]string{
 	CodeSuccess:         "Success",
+	UpdatedSuccess:      "Updated Success",
+	DeletedSuccess:      "Deleted Success",
 	CreatedSuccess:      "Created Success",
 	ErrBadRequest:       "Bad Request",
 	ErrCodeParamInvalid: "Param invalid",
