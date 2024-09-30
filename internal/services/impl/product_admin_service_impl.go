@@ -2,11 +2,11 @@ package impl
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hainguyen27798/open-typesense-search/internal/dto"
-	"github.com/hainguyen27798/open-typesense-search/internal/models"
-	"github.com/hainguyen27798/open-typesense-search/internal/pkg/response"
-	"github.com/hainguyen27798/open-typesense-search/internal/repos"
-	"github.com/hainguyen27798/open-typesense-search/pkg/utils"
+	"github.com/hainguyen27798/open-search-engine/internal/dto"
+	"github.com/hainguyen27798/open-search-engine/internal/models"
+	"github.com/hainguyen27798/open-search-engine/internal/pkg/response"
+	"github.com/hainguyen27798/open-search-engine/internal/repos"
+	"github.com/hainguyen27798/open-search-engine/pkg/utils"
 )
 
 type ProductAdminServiceImpl struct {

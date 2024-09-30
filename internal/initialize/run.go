@@ -2,13 +2,12 @@ package initialize
 
 import (
 	"fmt"
-	"github.com/hainguyen27798/open-typesense-search/global"
+	"github.com/hainguyen27798/open-search-engine/global"
 )
 
 func Run() {
 	LoadEnv()
 	InitValidator()
-	InitTypesense()
 	InitMongo()
 
 	r := InitRouter()

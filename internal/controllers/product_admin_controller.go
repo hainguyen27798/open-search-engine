@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hainguyen27798/open-typesense-search/internal/pkg/response"
-	"github.com/hainguyen27798/open-typesense-search/internal/services"
+	"github.com/hainguyen27798/open-search-engine/internal/pkg/response"
+	"github.com/hainguyen27798/open-search-engine/internal/services"
 )
 
 type ProductAdminController struct {

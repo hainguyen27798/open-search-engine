@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hainguyen27798/open-typesense-search/internal/router"
+	"github.com/hainguyen27798/open-search-engine/internal/router"
 	"os"
 )
 

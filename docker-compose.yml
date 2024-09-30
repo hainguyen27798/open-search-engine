@@ -1,12 +1,12 @@
-name: open-typesense-search
+name: open-search-engine
 networks:
-    open_typesense_search_network:
+    open_search_engine_network:
         driver: bridge
 services:
     mongo:
         build:
             dockerfile: .docker/mongo/Dockerfile
-        container_name: open-typesense-search-mongo-db
+        container_name: open-search-engine-mongo-db
         restart: always
         environment:
             MONGO_INITDB_ROOT_USERNAME: $MONGO_USERNAME
@@ -30,19 +30,29 @@ services:
             start_period: 15s
             retries: 10
         networks:
-            - open_typesense_search_network
+            - open_search_engine_network
         volumes:
             - mongo_dist:/data/db
-    search_engine:
-        image: typesense/typesense:27.1
-        container_name: open-typesense-search-engine
+    ollama:
+        image: ollama/ollama:0.3.12
+        container_name: open-search-engine-ollama
         ports:
-            - '${TYPESENSE_PORT}:8108'
+            - '11434:11434'
         volumes:
-            - typesense_dist:/data
-        command: '--data-dir /data --api-key=${TYPESENSE_API_KEY} --enable-cors'
+            - ollama_dist:/root/.ollama
         networks:
-            - open_typesense_search_network
+            - open_search_engine_network
+    qdrant:
+        image: qdrant/qdrant:v1.11.5
+        container_name: open-search-engine-qdrant
+        ports:
+            - '6333:6333'
+            - '6334:6334'
+        volumes:
+            - qdrant_storage:/qdrant/storage:z
+        networks:
+            - open_search_engine_network
 volumes:
     mongo_dist:
-    typesense_dist:
+    ollama_dist:
+    qdrant_storage:

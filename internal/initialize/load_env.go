@@ -1,8 +1,8 @@
 package initialize
 
 import (
-	"github.com/hainguyen27798/open-typesense-search/global"
-	"github.com/hainguyen27798/open-typesense-search/pkg/settings"
+	"github.com/hainguyen27798/open-search-engine/global"
+	"github.com/hainguyen27798/open-search-engine/pkg/settings"
 	"github.com/joho/godotenv"
 	"os"
 	"strconv"
@@ -19,10 +19,6 @@ func LoadEnv() {
 		Server: settings.ServerSettings{
 			Port: serverPort,
 			Mode: os.Getenv("SERVER_MODE"),
-		},
-		Typesense: settings.TypesenseSettings{
-			Host:   os.Getenv("TYPESENSE_HOST"),
-			ApiKey: os.Getenv("TYPESENSE_API_KEY"),
 		},
 		MongoDB: settings.MongoDBSettings{
 			URL:         os.Getenv("MONGO_URL"),
