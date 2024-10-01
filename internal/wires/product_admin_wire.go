@@ -5,9 +5,9 @@ package wires
 
 import (
 	"github.com/google/wire"
-	"github.com/hainguyen27798/open-typesense-search/internal/controllers"
-	"github.com/hainguyen27798/open-typesense-search/internal/repos"
-	"github.com/hainguyen27798/open-typesense-search/internal/services"
+	"github.com/hainguyen27798/open-search-engine/internal/controllers"
+	"github.com/hainguyen27798/open-search-engine/internal/repos"
+	"github.com/hainguyen27798/open-search-engine/internal/services"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 )
 

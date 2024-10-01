@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/hainguyen27798/open-typesense-search/internal/initialize"
+	"github.com/hainguyen27798/open-search-engine/internal/initialize"
 )
 
 func main() {

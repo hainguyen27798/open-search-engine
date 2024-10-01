@@ -1,5 +1,5 @@
 <div style="text-align: center; font-size: 28px; font-weight: bold">
-    Open Typesense Search
+    Open Search Engine
 </div>
 
 ### Flow Diagram

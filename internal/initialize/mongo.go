@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"context"
-	"github.com/hainguyen27798/open-typesense-search/global"
+	"github.com/hainguyen27798/open-search-engine/global"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"

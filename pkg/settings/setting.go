@@ -1,19 +1,15 @@
 package settings
 
 type Config struct {
-	Server    ServerSettings
-	Typesense TypesenseSettings
-	MongoDB   MongoDBSettings
+	Server         ServerSettings
+	MongoDB        MongoDBSettings
+	EmbeddingModel EmbeddingModelSettings
+	QDrant         QDrantSettings
 }
 
 type ServerSettings struct {
 	Port int
 	Mode string
-}
-
-type TypesenseSettings struct {
-	Host   string
-	ApiKey string
 }
 
 type MongoDBSettings struct {
@@ -22,4 +18,17 @@ type MongoDBSettings struct {
 	Password    string
 	Database    string
 	MaxPoolSize uint64
+}
+
+type EmbeddingModelSettings struct {
+	Auth        string
+	TextEMURL   string
+	TextEMName  string
+	ImageEMURL  string
+	ImageEMName string
+}
+
+type QDrantSettings struct {
+	Host string
+	Port int
 }
