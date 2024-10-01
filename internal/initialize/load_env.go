@@ -15,6 +15,7 @@ func LoadEnv() {
 	}
 	serverPort, _ := strconv.Atoi(os.Getenv("SERVER_PORT"))
 	mongoPoolSize, _ := strconv.ParseUint(os.Getenv("MONGO_MAX_POOL_SIZE"), 10, 64)
+	qdrantPort, _ := strconv.Atoi(os.Getenv("QDRANT_PORT"))
 	global.Config = &settings.Config{
 		Server: settings.ServerSettings{
 			Port: serverPort,
@@ -33,6 +34,10 @@ func LoadEnv() {
 			TextEMName:  os.Getenv("TEXT_EMBEDDING_MODEL_NAME"),
 			ImageEMURL:  os.Getenv("IMAGE_EMBEDDING_MODEL_URL"),
 			ImageEMName: os.Getenv("IMAGE_EMBEDDING_MODEL_NAME"),
+		},
+		QDrant: settings.QDrantSettings{
+			Host: os.Getenv("QDRANT_HOST"),
+			Port: qdrantPort,
 		},
 	}
 }

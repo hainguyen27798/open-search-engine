@@ -4,6 +4,7 @@ type Config struct {
 	Server         ServerSettings
 	MongoDB        MongoDBSettings
 	EmbeddingModel EmbeddingModelSettings
+	QDrant         QDrantSettings
 }
 
 type ServerSettings struct {
@@ -25,4 +26,9 @@ type EmbeddingModelSettings struct {
 	TextEMName  string
 	ImageEMURL  string
 	ImageEMName string
+}
+
+type QDrantSettings struct {
+	Host string
+	Port int
 }
