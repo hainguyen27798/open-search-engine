@@ -27,5 +27,12 @@ func LoadEnv() {
 			Database:    os.Getenv("MONGO_BD_NAME"),
 			MaxPoolSize: mongoPoolSize,
 		},
+		EmbeddingModel: settings.EmbeddingModelSettings{
+			Auth:        os.Getenv("EMBEDDING_MODEL_TOKEN"),
+			TextEMURL:   os.Getenv("TEXT_EMBEDDING_MODEL_URL"),
+			TextEMName:  os.Getenv("TEXT_EMBEDDING_MODEL_NAME"),
+			ImageEMURL:  os.Getenv("IMAGE_EMBEDDING_MODEL_URL"),
+			ImageEMName: os.Getenv("IMAGE_EMBEDDING_MODEL_NAME"),
+		},
 	}
 }
