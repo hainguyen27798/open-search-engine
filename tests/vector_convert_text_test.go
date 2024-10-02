@@ -9,10 +9,14 @@ import (
 func TestConvertTextToVector(t *testing.T) {
 	initialize.LoadEnv()
 
-	vectorData, err := embeddings.TextToVector("test")
+	vectorData, err := embeddings.TextToVector("test demo")
 	if err != nil {
 		t.Fatalf(`Error mesage: %v`, err)
 	}
 
-	t.Logf("Result: %v", *vectorData)
+	rs := *vectorData
+	t.Logf("Result: %v", len(rs))
+	if len(rs) >= 1 {
+		t.Logf("Dimensional Size: %v", len(rs[0]))
+	}
 }

@@ -14,5 +14,9 @@ func TestConvertImageToVector(t *testing.T) {
 		t.Fatalf(`Error mesage: %v`, err)
 	}
 
-	t.Logf("Result: %v", *vectorData)
+	rs := *vectorData
+	t.Logf("Result: %v", len(rs))
+	if len(rs) >= 1 {
+		t.Logf("Dimensional Size: %v", len(rs[0]))
+	}
 }
