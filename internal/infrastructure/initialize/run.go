@@ -10,6 +10,7 @@ func Run() {
 	InitValidator()
 	InitMongo()
 	InitQDrant()
+	InitChangeStream()
 
 	r := InitRouter()
 	err := r.Run(fmt.Sprintf(":%d", global.Config.Server.Port))
