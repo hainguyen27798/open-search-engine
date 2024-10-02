@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hainguyen27798/open-search-engine/internal/router"
+	"github.com/hainguyen27798/open-search-engine/internal/domain/products"
 	"os"
 )
 
@@ -20,7 +20,7 @@ func InitRouter() *gin.Engine {
 
 	mainRouter := r.Group("/v1")
 	{
-		router.AppRouter.Products.InitProductRouter(mainRouter)
+		products.InitProductRouter(mainRouter)
 	}
 
 	return r

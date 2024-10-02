@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/hainguyen27798/open-search-engine/global"
-	"github.com/hainguyen27798/open-search-engine/internal/pkg/response"
+	"github.com/hainguyen27798/open-search-engine/pkg/response"
 	"log"
 )
 

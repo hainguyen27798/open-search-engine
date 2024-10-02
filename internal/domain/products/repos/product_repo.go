@@ -2,8 +2,8 @@ package repos
 
 import (
 	"context"
-	"github.com/hainguyen27798/open-search-engine/internal/models"
-	"github.com/hainguyen27798/open-search-engine/internal/pkg/response"
+	"github.com/hainguyen27798/open-search-engine/internal/domain/products/models"
+	"github.com/hainguyen27798/open-search-engine/pkg/response"
 	"go.mongodb.org/mongo-driver/v2/bson"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"log"

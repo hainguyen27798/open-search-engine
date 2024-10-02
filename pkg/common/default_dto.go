@@ -1,4 +1,4 @@
-package dto
+package common
 
 type DefaultDto struct {
 	ID        string `json:"id"`

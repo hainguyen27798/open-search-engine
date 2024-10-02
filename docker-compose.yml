@@ -1,7 +1,7 @@
 name: open-search-engine
 networks:
-    open_search_engine_network:
-        driver: bridge
+    external_host_network:
+        external: true
 services:
     mongo:
         build:
@@ -30,7 +30,7 @@ services:
             start_period: 15s
             retries: 10
         networks:
-            - open_search_engine_network
+            - external_host_network
         volumes:
             - mongo_dist:/data/db
     ollama:
@@ -41,7 +41,7 @@ services:
         volumes:
             - ollama_dist:/root/.ollama
         networks:
-            - open_search_engine_network
+            - external_host_network
     qdrant:
         image: qdrant/qdrant:v1.11.5
         container_name: open-search-engine-qdrant
@@ -51,8 +51,9 @@ services:
         volumes:
             - qdrant_storage:/qdrant/storage:z
         networks:
-            - open_search_engine_network
+            - external_host_network
 volumes:
     mongo_dist:
+    mongo2_dist:
     ollama_dist:
     qdrant_storage:

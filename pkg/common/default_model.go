@@ -1,4 +1,4 @@
-package models
+package common
 
 import (
 	"go.mongodb.org/mongo-driver/v2/bson"
